@@ -1,0 +1,46 @@
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+ curl -LO https://dl.k8s.io/release/v1.32.0/bin/linux/amd64/kubectl
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+chmod +x kubectl
+mkdir -p ~/.local/bin
+mv ./kubectl ~/.local/bin/kubectl
+kubectl version --client
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+https://dl.k8s.io/release/v1.32.0/bin/linux/amd64/kubectl
+
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+
+chmod +x kubectl
+mkdir -p ~/.local/bin
+mv ./kubectl ~/.local/bin/kubectl
+
+kubectl version --client
+https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download
+https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+minikube start
+minikube start 
+minikube status 
+
+kubectl get pod 
+
+kubeclt get deploy 
+kubectl get replica
+kubectl get pod -o wide
+version: '3'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - 80:80
+
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+docker exec -it david-db-1 /bin/bash
+mysql -u root -p
