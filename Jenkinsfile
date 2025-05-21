@@ -6,20 +6,20 @@ pipeline {
     }
 
     stages {
-        stage('SCM') {
+        stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Pavish-kumar/guvidevopswarsday1.git'
+                checkout scm
             }
         }
 
-        stage('Build') {
+        stage('Java Build') {
             steps {
                 sh "mvn clean"
                 sh "mvn install"
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build Java Docker Image') {
             steps {
                 script {
                     sh 'docker build -t pavishkumar/guvidevopswarsday1 .'
@@ -27,7 +27,7 @@ pipeline {
             }
         }
 
-        stage('Push to Docker Hub') {
+        stage('Push Java Image to Docker Hub') {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'cred-1') {
@@ -35,6 +35,25 @@ pipeline {
                     }
                 }
             }
+        }
+
+        stage('Build and Test React App in Docker') {
+            steps {
+                sh 'docker build -t react-app-test .'
+                sh 'docker run --rm react-app-test'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Tests completed.'
+        }
+        success {
+            echo 'Tests passed!'
+        }
+        failure {
+            echo 'Tests failed!'
         }
     }
 }

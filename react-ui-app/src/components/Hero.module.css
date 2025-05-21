@@ -1,0 +1,39 @@
+.hero {
+  background: linear-gradient(135deg, #90caf9, #42a5f5);
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  background-color: white;
+  color: #0077b6;
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+  background-color: #90caf9;
+  color: white;
+}
